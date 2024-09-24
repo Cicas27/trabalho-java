@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunotexto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #poema {
+            margin-top: 20px;
+            font-style: italic;
+            white-space: pre-wrap; /* Preserva espaços e quebras de linha */
+        }
+        select {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Poemas de Carlos Drummond de Andrade</h1>
+    <label for="poema-selecionado">Escolha um poema:</label>
+    <select id="poema-selecionado">
+        <option value="A1">No Meio do Caminho</option>
+        <option value="B1">Poema de Sete Faces</option>
+        <option value="C1">José</option>
+        <option value="D1">Amar</option>
+        <option value="E1">Os Ombros Suportam o Mundo</option>
+        <option value="F1">Destruição</option>
+        <option value="G1">Congresso Internacional do Medo</option>
+    </select>
+
+    <div id="poema">
+        <!-- O poema selecionado será exibido aqui -->
+    </div>
+
+    <script>
+        const poemas = {
+            A1: `No meio do caminho tinha uma pedra
+No meio do caminho tinha uma pedra
+No meio do caminho tinha uma pedra
+
+Nunca me esquecerei desse acontecimento
+Na vida de minhas retinas tão fatigadas
+Nunca me esquecerei que no meio do caminho
+Tinha uma pedra
+No meio do caminho tinha uma pedra`,
+            
+            B1: `Quando nasci, um anjo torto
+desses que vive na sombra
+disse: Vai, Carlos! Serás
+drummond! E eu fui.
+
+Serei um dia um amargo
+poeta que assiste
+desse lugar de cegos e surdos
+a catástrofe dos homens
+
+Meu avô que me dizia: 
+‘O melhor é não esperar’.
+Eu esperava, acreditava,
+na redenção, nos amigos
+
+E sempre o mesmo engano,
+que um poeta não deve esperar
+nada, nem em termos de futuro.`,
+
+            C1: `José
+E agora, José?
+A festa acabou,
+a luz apagou,
+o povo sumiu,
+a noite esfriou,
+e agora, José?
+
+E agora, José?
+Você que é sem nome,
+que lutou e agora
+já não tem mais nada,
+a não ser a dor,
+a não ser a solidão.`,
+
+            D1: `Amar
+Amar é um estado de permanente
+disposição, é um trabalho incessante
+de cuidar do outro, de saber
+seus gostos e preocupações,
+é um ato que se faz
+no cotidiano da vida.
+
+Amar é uma forma de estar
+no mundo, de ser um pouco
+de tudo, mas sempre
+tendo em mente o bem-estar
+do outro, é um grande desafio.`,
+
+            E1: `Os Ombros Suportam o Mundo
+Os ombros suportam o mundo
+como o mundo é grande
+os ombros suportam
+como o mundo é pequeno
+
+Nossos ombros são os responsáveis
+por aguentar o peso do mundo,
+mas nós não temos culpa,
+somos apenas suporte.`,
+
+            F1: `Destruição
+Não sei se é o acaso
+ou um plano divino,
+mas o que há
+é uma certa destruição
+de nossos sentimentos.
+
+A vida é uma eterna
+reconstrução e destruição,
+em um ciclo de novos
+começos e finais.`,
+
+            G1: `Congresso Internacional do Medo
+Em cada canto da cidade
+há um medo a mais
+que se espalha como um vírus.
+
+O medo é uma epidemia
+que se dissemina e afeta
+nossos sonhos e nossos medos,
+em um congresso internacional
+de terror e insegurança.`
+        };
+
+        const selectPoema = document.getElementById('poema-selecionado');
+        const poemaDiv = document.getElementById('poema');
+
+        function atualizarPoema() {
+            const poemaSelecionado = selectPoema.value;
+            poemaDiv.textContent = poemas[poemaSelecionado];
+        }
+
+        // Atualiza o poema quando a página carrega
+        atualizarPoema();
+
+        // Atualiza o poema quando a seleção muda
+        selectPoema.addEventListener('change', atualizarPoema);
+    </script>
+</body>
+</html>
