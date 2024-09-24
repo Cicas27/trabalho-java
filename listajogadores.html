@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunolista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #lista-jogadores {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Jogadores por Esporte</h1>
+    <label for="esporte">Escolha um esporte:</label>
+    <select id="esporte">
+        <option value="futebol">Futebol</option>
+        <option value="voleibol">Voleibol</option>
+        <option value="basquetebol">Basquetebol</option>
+    </select>
+
+    <div id="lista-jogadores">
+        <!-- A lista de jogadores será exibida aqui -->
+    </div>
+
+    <script>
+        const jogadores = {
+            futebol: [
+                'Neymar',
+                'Cristiano Ronaldo',
+                'Lionel Messi',
+                'Kylian Mbappé'
+            ],
+            voleibol: [
+                'Giba',
+                'Fabiola',
+                'Bernardinho',
+                'Jaqueline Carvalho'
+            ],
+            basquetebol: [
+                'LeBron James',
+                'Stephen Curry',
+                'Kevin Durant',
+                'Giannis Antetokounmpo'
+            ]
+        };
+
+        const selectEsporte = document.getElementById('esporte');
+        const listaJogadoresDiv = document.getElementById('lista-jogadores');
+
+        function atualizarLista() {
+            const esporteSelecionado = selectEsporte.value;
+            const lista = jogadores[esporteSelecionado];
+            listaJogadoresDiv.innerHTML = ''; // Limpa a lista atual
+
+            const ul = document.createElement('ul');
+            lista.forEach(jogador => {
+                const li = document.createElement('li');
+                li.textContent = jogador;
+                ul.appendChild(li);
+            });
+
+            listaJogadoresDiv.appendChild(ul);
+        }
+
+        // Atualiza a lista quando a página carrega
+        atualizarLista();
+
+        // Atualiza a lista quando o esporte selecionado muda
+        selectEsporte.addEventListener('change', atualizarLista);
+    </script>
+</body>
+</html>
